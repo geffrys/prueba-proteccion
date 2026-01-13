@@ -5,7 +5,7 @@ services:
     image: postgres:15-alpine
     container_name: proteccion
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: postgres 
       POSTGRES_DB: proteccion-db
     ports:
       - "5440:5432"
