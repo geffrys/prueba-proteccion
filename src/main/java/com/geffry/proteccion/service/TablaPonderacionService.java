@@ -1,5 +1,8 @@
 package com.geffry.proteccion.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.geffry.proteccion.model.TablaPonderacion;
@@ -18,12 +21,22 @@ public class TablaPonderacionService {
 
     private final TablaPonderacionRepository tablaPonderacionRepository;
 
-    public int obtenerPonderacionPorTipo(TipoSolicitudEnum tipoSolicitud) {
-        return tablaPonderacionRepository.findTopByTipoOrderByIdDesc(tipoSolicitud.toString())
-                .orElse(0);
+    public Optional<TablaPonderacion> obtenerPonderacionPorTipo(TipoSolicitudEnum tipoSolicitud) {
+        return tablaPonderacionRepository.findTopByTipoOrderByIdDesc(tipoSolicitud);
     }
 
     public TablaPonderacion crearTablaPonderacion(TablaPonderacion tablaPonderacion) {
         return tablaPonderacionRepository.save(tablaPonderacion);
+    }
+
+    public void eliminarTablaPonderacion(Long id) {
+        tablaPonderacionRepository.deleteById(id);
+    }
+
+    public List<TablaPonderacion> obtenerTodasLasPonderaciones() {
+        List<TipoSolicitudEnum> tipos = List.of(TipoSolicitudEnum.values());
+        return tipos.stream()
+            .map(tipo -> tablaPonderacionRepository.findTopByTipoOrderByIdDesc(tipo).orElse(null))
+            .toList();
     }
 }

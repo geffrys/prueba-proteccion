@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.geffry.proteccion.model.Solicitud;
+import com.geffry.proteccion.model.TipoSolicitudEnum;
 import com.geffry.proteccion.service.SolicitudService;
 
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -46,5 +48,11 @@ public class SolicitudController {
         return null;
     }
 
+    // Tipos de solicitudes
+    @GetMapping("/tipos")
+    public List<TipoSolicitudEnum> getTipos() {
+        return List.of(TipoSolicitudEnum.values());
+    }
+    
     
 }

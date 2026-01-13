@@ -22,11 +22,13 @@ public class SolicitudService {
     }
 
     public Optional<List<Solicitud>> getSolicitudesPriorizadas() {
+
         return solicitudRepository.findAllByOrderByPrioridadManualDescFechaCreacionAsc();
     }
 
     public Solicitud createSolicitud(Solicitud solicitud) {
         return solicitudRepository.save(solicitud);
     }
+
     
 }
