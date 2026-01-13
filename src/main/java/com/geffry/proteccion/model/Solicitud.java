@@ -32,5 +32,5 @@ public class Solicitud {
     @Column(name = "fecha_creacion", updatable = false)
     @CreationTimestamp
     private Instant fechaCreacion;
-    private String usuario;
+    private String usuario; 
 }

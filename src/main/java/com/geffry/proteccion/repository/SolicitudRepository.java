@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.geffry.proteccion.model.Solicitud;
 
 public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
-    Optional<List<Solicitud>> findAllByOrderByPrioridadManualDescFechaCreacionAsc();    
+    Optional<List<Solicitud>> findAllByOrderByPrioridadManualAscFechaCreacionAsc();    
 }

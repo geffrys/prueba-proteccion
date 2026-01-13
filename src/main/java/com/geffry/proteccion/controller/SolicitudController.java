@@ -3,6 +3,7 @@ package com.geffry.proteccion.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.geffry.proteccion.dto.SolicitudPonderada;
 import com.geffry.proteccion.model.Solicitud;
 import com.geffry.proteccion.model.TipoSolicitudEnum;
 import com.geffry.proteccion.service.SolicitudService;
@@ -32,7 +33,7 @@ public class SolicitudController {
 
     // Listar solicitudes con ponderacion
     @GetMapping("/priorizadas")
-    public List<Solicitud> getSolicitudesPriorizadas() {
+    public List<SolicitudPonderada> getSolicitudesPriorizadas() {
         return solicitudService.getSolicitudesPriorizadas().orElse(List.of());
     }
 
@@ -40,12 +41,6 @@ public class SolicitudController {
     @PostMapping
     public Solicitud createSolicitud(@RequestBody Solicitud solicitud) {
         return solicitudService.createSolicitud(solicitud);
-    }
-
-    // Actualizar prioridad manual de una solicitud
-    @PostMapping("/{id}/prioridad")
-    public String updatePrioridadManual() {
-        return null;
     }
 
     // Tipos de solicitudes
