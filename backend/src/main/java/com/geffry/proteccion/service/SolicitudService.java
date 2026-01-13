@@ -99,13 +99,13 @@ public class SolicitudService {
     }
 
     private int ponderarPorAntiguedad(int antiguedadDias) {
-        if (antiguedadDias <= 10) {
+        if (antiguedadDias == 1) {
             return 1;
         }
-        if(antiguedadDias <= 15) {
+        if(antiguedadDias <= 2) {
             return 3;
         }
-        if (antiguedadDias >= 30) {
+        if (antiguedadDias >= 4) {
             return 6;
         }
         return 0;
