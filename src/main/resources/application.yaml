@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: proteccion
+
+  datasource:
+    url: ${JDBC_URL:jdbc:postgresql://127.0.0.1:5440/proteccion-db}
+    username: ${JDBC_USERNAME:postgres}
+    password: ${JDBC_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+server:
+  port: ${SERVER_PORT:6000}
+
+    
