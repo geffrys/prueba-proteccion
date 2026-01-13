@@ -13,6 +13,6 @@ spring:
 
 
 server:
-  port: ${SERVER_PORT:6000}
+  port: ${SERVER_PORT:5000}
 
     
