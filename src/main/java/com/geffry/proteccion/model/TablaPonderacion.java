@@ -1,10 +1,6 @@
 package com.geffry.proteccion.model;
 
-import java.time.Instant;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -15,22 +11,16 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+@Entity
+@Table(name = "tabla_ponderacion")
 @Getter
 @Setter
 @RequiredArgsConstructor
-@Entity
-@Table(name = "solicitudes")
-public class Solicitud {
+public class TablaPonderacion {
     @Id
-    @Column(name = "solicitud_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "tipo")
     @Enumerated(jakarta.persistence.EnumType.STRING)
     private TipoSolicitudEnum tipo;
-    private Integer prioridadManual;
-    @Column(name = "fecha_creacion", updatable = false)
-    @CreationTimestamp
-    private Instant fechaCreacion;
-    private String usuario;
+    private Integer puntos;
 }
